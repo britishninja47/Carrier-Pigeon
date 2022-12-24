@@ -2,9 +2,7 @@ import React from 'react'
 
 function TeamMessage() {
   return (
-    <div>
-
-    </div>
+    <div>TeamMessage</div>
   )
 }
 
