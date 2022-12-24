@@ -13,12 +13,12 @@ const SideBar = ({ logout }) => (
     <div className="channel-list__sidebar">
         <div className="channel-list__sidebar__icon1">
             <div className="icon1__inner">
-                 <img src={HospitalIcon} alt= "Hospital" width= "30" />
+                 <img src={HospitalIcon} alt= "Hospital" width="30" />
             </div>
         </div>
         <div className="channel-list__sidebar__icon2">
             <div className="icon1__inner" onClick={logout}>
-                 <img src={LogoutIcon} alt= "Logout" width= "30" />
+                 <img src={LogoutIcon} alt= "Logout" width="30" />
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@ const CompanyHeader = () => (
 )
 
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({ isCreating, setIsCreating, setIsEditing, setCreateType }) => {
   const logout = () => {
     cookies.remove("token");
     cookies.remove('userId');
@@ -58,6 +58,10 @@ const ChannelListContainer = () => {
                       <TeamChannelList
                          {... listProps}
                          type="team"
+                         isCreating={isCreating}
+                         setIsCreating={setIsCreating}
+                         setIsEditing={setIsEditing}
+                         setCreateType={setCreateType}
                       />
 
                   )}
@@ -65,7 +69,7 @@ const ChannelListContainer = () => {
                      <TeamChannelPreview
                         {...previewprops}
                         type= "team"
-                     />
+                        />
                   )}
                />
 
@@ -76,6 +80,10 @@ const ChannelListContainer = () => {
                       <TeamChannelList
                          {... listProps}
                          type="messaging"
+                         isCreating={isCreating}
+                         setIsCreating={setIsCreating}
+                         setIsEditing={setIsEditing}
+                         setCreateType={setCreateType}
                       />
 
                   )}
