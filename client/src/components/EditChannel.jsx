@@ -3,7 +3,7 @@ import React from 'react'
 function EditChannel() {
   return (
     <div>
-
+     EditChannel
     </div>
   )
 }
