@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-import signinImage from '../assets/signup.jpg';
+import signinImage from '../assets/Pigeon.jpg';
 
 const cookies = new Cookies();
 
@@ -64,7 +64,7 @@ const Auth = () => {
             <input
             name="fullName"
             type="text"
-            placeholder="fullName"
+            placeholder="Full Name"
             onChange={handleChange}
             required
             />
@@ -121,7 +121,7 @@ const Auth = () => {
 
           {isSignup && (
           <div className="auth__form-container_fields-content_input">
-            <label htmlFor="confirmpassword">Confirm Password</label>
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <input
             name="confirmPassword"
             type="Password"
@@ -131,6 +131,7 @@ const Auth = () => {
             />
           </div>
           )}
+
           <div className="auth__form-container_fields-content_button">
             <button>{isSignup ? "Sign up" : "Sign in"}</button>
           </div>
