@@ -1,11 +1,11 @@
 import React from 'react';
-
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
 import HospitalIcon from '../assets/hospital.png'
 import LogoutIcon from '../assets/logout.png'
+
 const cookies = new Cookies()
 
 
@@ -22,17 +22,26 @@ const SideBar = ({ logout }) => (
             </div>
         </div>
     </div>
-)
+);
 
 
 const CompanyHeader = () => (
   <div className="channel-list__header">
-      <p className="channel-list__header__text">Universal-Chat-Room</p>
+      <p className="channel-list__header__text">Pigeon Chat Room</p>
   </div>
 )
 
+const customChannelTeamFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'team');
+}
+
+const customChannelMessagingFilter = (channels) => {
+  return channels.filter((channel) => channel.type === 'messaging');
+}
+
 
 const ChannelListContainer = ({ isCreating, setIsCreating, setIsEditing, setCreateType }) => {
+  const { client } = useChatContext();
   const logout = () => {
     cookies.remove("token");
     cookies.remove('userId');
@@ -44,6 +53,8 @@ const ChannelListContainer = ({ isCreating, setIsCreating, setIsEditing, setCrea
 
     window.location.reload();
   }
+
+  const filters = { members: { $in: [client.userID] } };
 
   return (
     <>
