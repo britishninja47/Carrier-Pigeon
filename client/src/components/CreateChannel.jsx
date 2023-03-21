@@ -5,6 +5,9 @@ import { UserList } from './';
 import { CloseCreateChannel } from '../assets';
 
 const ChannelNameInput = ({ channelName = '', setChannelName }) => {
+  const { client, setActiveChannel } = useChatContext();
+    const [SelectedUsers, setSelectedUsers] = useState([])
+
     const handleChange = (event) => {
         event.preventDefault();
 
